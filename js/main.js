@@ -4,10 +4,10 @@ var $box = $('.box');
 var $btnMove = $('.btn-move');
 var $diamond = $('.diamond');
 
-var $btnCollapseExpand = $('.Collapse-expand');
+var $btnCollapseExpand = $('.btn-collapse-expand');
 var $panel = $('.panel');
 
-var $btnBounce = $('.Bounce-in');
+var $btnBounceIn = $('.btn-bounce');
 var $circle = $('.circle');
 
 var $btnAppend = $('.btn-append');
@@ -25,13 +25,19 @@ $btnMove.on('click', function () {
 });
 
 $btnCollapseExpand.on('click', function () {
-    $panel.toggleClass('js-btn-collapse-expand');
+    $panel.toggleClass('js-panel-expand');
 });
 
-$BounceIn.on('click', function () {
+$btnBounceIn.on('click', function () {
     $circle.toggleClass('js-Bounce-in');
 });
 
+$circle.on('animationend', function () {
+    $circle.removeClass('js-circle-bounce');
+});
+
 $btnAppend.on('click', function () {
+    var $li = $('<li>New item</li>');
+    $list.prepend($li);
     $list.toggleClass('js-btn-append');
 });
